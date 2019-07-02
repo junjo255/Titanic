@@ -1,0 +1,19 @@
+.row {
+  background: #f8f9fa;
+  margin-top: 20px;
+}
+
+.col {
+  border: solid 1px #6c757d;
+  padding: 10px;
+}
+
+.text-center {
+  font-family: sans-serif;
+  color: #05386B;
+}
+
+
+.jqx-widget-header-material-purple {
+  color: #374785;
+}
