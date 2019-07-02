@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Axios from 'axios'
 
 class App extends Component {
     constructor(props) {
@@ -9,8 +9,22 @@ class App extends Component {
         }
     }
 
+    componentDidMount() {
+        Axios.get('/api/passengers/survival')
+            .then(res => {
+                var saveData = res.data;
+                // console.log(data, "this is data")
+                return saveData
+            })
+            .then(src => {
+                // console.log(src, "this is from app")
+                this.setState({ data: src})
+            })
+    }
+
 
     render() {
+        console.log(this.state.data, "this is from the app")
         return (
 
             <div>
