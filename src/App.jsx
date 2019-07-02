@@ -24,7 +24,7 @@ class App extends Component {
 
 
     render() {
-        console.log(this.state.data, "this is from the app")
+        // console.log(this.state.data, "this is from the app")
         return (
 
             <div>
