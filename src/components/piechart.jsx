@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import template from "./chart/template";
 import Dashboard from "./chart/Dashboard.jsx";
-// import { sortInfo } from "./table.tsx"
-import dataProcessing, { sortedData } from "./chart/dataProcessing";
-import  sortation from "./chart/sortation.jsx"
+import dataProcessing, {
+  genderData,
+  ageData,
+  survivalData
+} from "./chart/dataProcessing";
 import Axios from "axios";
-
 
 
 class PieChart extends Component {
@@ -14,7 +15,8 @@ class PieChart extends Component {
     super()
     this.state = {
       template: template,
-      data: []
+      data: [],
+      sortInfo: []
     }
   }
 
@@ -22,7 +24,9 @@ class PieChart extends Component {
     this.setState({
       ...obj,
       charts: [
-        { serie: sortedData, title: "Gender" },
+        { serie: genderData, title: "Gender" },
+        { serie: ageData, title: "Age" },
+        { serie: survivalData, title: "survivalData" },
       ]
     });
   };
@@ -35,46 +39,30 @@ class PieChart extends Component {
       })
       .then(src => {
         this.setState({ data: src })
-        // console.log(sortation(), "wow")
         dataProcessing(src)
         this.copyDataSeries();
       })
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevState.sortInfo, "what the heck")
-    if (prevState.sortInfo !== this.state.sortInfo){
-      this.handleChangeSelect();
-    }
-  }
-
-  // handleChangeSelect() {
-  //   let msg = dataProcessing(this.state.sortInfo);
-  //   this.copyDataSeries({ msg: msg });
-  // }
-
-
-
-
   render() {
-    
-    console.log(sortation, "alsdkjfalksjdflkajsd")
     return (
       <>
-        <div className="container">
-          <div
-            className={
-              "text-center mb-0 pt-3" +
-              (this.state.msg !== "Select the range" ? "text-danger" : "")
-            }
-          >
-            <strong>{this.state.msg}</strong>
-          </div>
-          <Dashboard
-            userConfig={this.state.userConfig}
-            charts={this.state.charts}
-          />
+        <div className="container bg-light">
+          <div className="container">
+            <div
+              className={
+                "text-center mb-0 pt-3" +
+                (this.state.msg !== "Select the range" ? "text-danger" : "")
+              }
+            >
+              <strong>{this.state.msg}</strong>
+            </div>
+            <Dashboard
+              userConfig={this.state.userConfig}
+              charts={this.state.charts}
+            />
 
+          </div>
         </div>
       </>
     );

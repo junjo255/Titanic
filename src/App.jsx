@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Table from './components/table'
+import Table from './components/table.jsx'
 import PieChart from './components/piechart'
 import './styles.css'
 
@@ -9,7 +9,7 @@ class App extends Component {
             <div>
                 <h1>Titanic</h1>
                 <div className="box">
-                    <Table />
+                    <Table /> 
                     <PieChart />
                 </div>
             </div>
