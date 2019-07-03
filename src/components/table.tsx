@@ -6,10 +6,11 @@ import JqxButton from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxbuttons';
 import JqxCheckBox from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxcheckbox';
 import JqxPanel from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxpanel';
 import Axios from 'axios';
-// import Selection from './chart/Selection.jsx';
+import sortation from './chart/sortation.jsx'
 import './App.css'
-var sortInfo = ''
-class Table extends React.PureComponent<{}, IGridProps> {
+
+// var sortInfo = ''
+ class Table extends React.PureComponent<{}, IGridProps> {
     private myGrid = React.createRef<JqxGrid>();
     private myPanel = React.createRef<JqxPanel>();
     private columns: IGridProps['columns'] =
@@ -43,9 +44,8 @@ class Table extends React.PureComponent<{}, IGridProps> {
         }
         const eventData = 'Triggered "sort" event <div>Column:' + sortinformation.sortcolumn + ', Direction: ' + sortdirection + '</div>';
         this.myPanel.current!.prepend('<div style="margin-top: 5px;">' + eventData + '</div>');
-        // console.log(sortinformation.sortcolumn, "sortinformation")
-        sortInfo = sortinformation.sortcolumn
-        // this.setState({ sort: sortinformation.sortcolumn})
+        console.log(sortinformation.sortcolumn)
+        sortation(sortinformation.sortcolumn)
     };
 
     private removeSortBtnOnClick(): void {
@@ -68,22 +68,15 @@ class Table extends React.PureComponent<{}, IGridProps> {
                     datafields: [
                         { name: '_id', type: 'string' },
                         { name: 'Age', type: 'number' },
-                        { name: 'Cabin', type: 'string' },
                         { name: 'Embarked', type: 'string' },
                         { name: 'Fare', type: 'number' },
                         { name: 'Name', type: 'string' },
-                        { name: 'Parch', type: 'number' },
-                        { name: 'PaseengerId', type: 'number' },
-                        { name: 'Pclass', type: 'number' },
                         { name: 'Sex', type: 'string' },
-                        { name: 'SibSp', type: 'number' },
                         { name: 'Survived', type: 'number' },
-                        { name: 'Ticket', type: 'string' }
                     ],
                     localdata: src,
                     sortcolumn: 'Name',
                     sortdirection: 'asc'
-
                 }
                 const dataAdapter = new jqx.dataAdapter(source);
                 this.setState({ source: dataAdapter })
@@ -119,4 +112,4 @@ class Table extends React.PureComponent<{}, IGridProps> {
 }
 
 export default Table;
-export { sortInfo }
+// export { sortInfo }

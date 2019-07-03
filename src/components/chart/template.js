@@ -18,7 +18,9 @@ const template = {
           }
         }
       }
-    }
+    },
+    sortInfo: "Gender",
+    msg: "Click on a column to see the data"
   };
   
   export default template;

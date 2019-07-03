@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 import template from "./chart/template";
 import Dashboard from "./chart/Dashboard.jsx";
-import dataProcessing, { genderData } from "./chart/dataProcessing";
+// import { sortInfo } from "./table.tsx"
+import dataProcessing, { sortedData } from "./chart/dataProcessing";
+import  sortation from "./chart/sortation.jsx"
 import Axios from "axios";
+
 
 
 class PieChart extends Component {
@@ -19,7 +22,7 @@ class PieChart extends Component {
     this.setState({
       ...obj,
       charts: [
-        { serie: genderData, title: "Gender" },
+        { serie: sortedData, title: "Gender" },
       ]
     });
   };
@@ -32,14 +35,30 @@ class PieChart extends Component {
       })
       .then(src => {
         this.setState({ data: src })
+        // console.log(sortation(), "wow")
         dataProcessing(src)
         this.copyDataSeries();
       })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState.sortInfo, "what the heck")
+    if (prevState.sortInfo !== this.state.sortInfo){
+      this.handleChangeSelect();
+    }
+  }
+
+  // handleChangeSelect() {
+  //   let msg = dataProcessing(this.state.sortInfo);
+  //   this.copyDataSeries({ msg: msg });
+  // }
+
+
+
 
   render() {
-
+    
+    console.log(sortation, "alsdkjfalksjdflkajsd")
     return (
       <>
         <div className="container">
