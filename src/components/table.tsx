@@ -1,6 +1,4 @@
 import * as React from 'react';
-// import React, { Component } from 'react';
-
 import 'jqwidgets-scripts/jqwidgets/styles/jqx.base.css';
 import 'jqwidgets-scripts/jqwidgets/styles/jqx.material-purple.css';
 import JqxGrid, { IGridProps, jqx } from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxgrid';
@@ -10,9 +8,7 @@ import JqxPanel from 'jqwidgets-scripts/jqwidgets-react-tsx/jqxpanel';
 import Axios from 'axios';
 // import Selection from './chart/Selection.jsx';
 import './App.css'
-
-
-
+var sortInfo = ''
 class Table extends React.PureComponent<{}, IGridProps> {
     private myGrid = React.createRef<JqxGrid>();
     private myPanel = React.createRef<JqxPanel>();
@@ -47,7 +43,8 @@ class Table extends React.PureComponent<{}, IGridProps> {
         }
         const eventData = 'Triggered "sort" event <div>Column:' + sortinformation.sortcolumn + ', Direction: ' + sortdirection + '</div>';
         this.myPanel.current!.prepend('<div style="margin-top: 5px;">' + eventData + '</div>');
-        // console.log(sortinformatKKKion.sortcolumn, "sortinformation")
+        // console.log(sortinformation.sortcolumn, "sortinformation")
+        sortInfo = sortinformation.sortcolumn
         // this.setState({ sort: sortinformation.sortcolumn})
     };
 
@@ -58,7 +55,6 @@ class Table extends React.PureComponent<{}, IGridProps> {
     private sortBackGroundBtn(event: any): void {
         this.myGrid.current!.setOptions({ showsortcolumnbackground: event.args.checked });
     }
-
 
     public componentDidMount() {
         Axios.get('/api/passengers/survival')
@@ -95,32 +91,7 @@ class Table extends React.PureComponent<{}, IGridProps> {
     }
 
     public render() {
-
-        // const source: IGridProps['source'] = {
-        //     datatype: 'json',
-        //     datafields: [
-        //         { name: '_id', type: 'string' },
-        //         { name: 'Age', type: 'number' },
-        //         { name: 'Cabin', type: 'string' },
-        //         { name: 'Embarked', type: 'string' },
-        //         { name: 'Fare', type: 'number' },
-        //         { name: 'Name', type: 'string' },
-        //         { name: 'Parch', type: 'number' },
-        //         { name: 'PaseengerId', type: 'number' },
-        //         { name: 'Pclass', type: 'number' },
-        //         { name: 'Sex', type: 'string' },
-        //         { name: 'SibSp', type: 'number' },
-        //         { name: 'Survived', type: 'number' },
-        //         { name: 'Ticket', type: 'string' }
-        //     ],
-        //     localdata: this.state.source,
-        //     sortcolumn: 'Name',
-        //     sortdirection: 'asc'
-
-        // }
-        // const dataAdapter = new jqx.dataAdapter(source);
         return (
-
             <div>
                 <JqxGrid
                     ref={this.myGrid} onSort={this.myGridOnSort}
@@ -128,7 +99,6 @@ class Table extends React.PureComponent<{}, IGridProps> {
                     pageable={true} filterable={true} autoheight={true} sortable={true} theme={'material-purple'}
                     altrows={true} 
                 />
-
                 <div className="text-center" style={{ float: 'left', marginRight: '10px', marginTop: '25px' }}>
                     <JqxButton onClick={this.removeSortBtnOnClick} height={20}>Remove Sort</JqxButton>
                     <div style={{ marginTop: '10px' }} />
@@ -149,3 +119,4 @@ class Table extends React.PureComponent<{}, IGridProps> {
 }
 
 export default Table;
+export { sortInfo }

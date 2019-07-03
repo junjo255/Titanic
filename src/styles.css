@@ -5,7 +5,7 @@ h1 {
 }
 
 body {
-    background-color: #5CDB95;
+    background-color: #EAE7DC;
 }
 
 .box {
@@ -19,7 +19,7 @@ body {
 }
 
 .jqx-widget-content {
-    background: #5CDB95;
+    background: #EAE7DC;
     font-family: sans-serif;
     font-weight: 300;
     color: #05386B;
@@ -27,14 +27,14 @@ body {
 
 .row {
     margin-top: 0px;
-    background: #5CDB95;
+    background: #EAE7DC;
 }
 
 .highcharts-background {
-    width: 300px !important;
-    fill: #5CDB95;  
+    width: 600px !important;
+    fill: #EAE7DC;  
 }
 
 .highcharts-credits {
-    color: #5CDB95!;
+    color: #EAE7DC!;
 }
