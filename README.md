@@ -1,6 +1,6 @@
 # Titanic
 
-#####Functionalities:
+##### Table/PieChart Functionalities:
 - Sort 
 	- Ascending, Descending
 	- Contains, empty, exact, etc
