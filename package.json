@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "start": "nodemon server/index.js --open",    
+    "start": "forever server/index.js --open",
     "build": "webpack --mode production",
     "build-dev": "webpack --mode development"
   },
@@ -17,6 +17,7 @@
     "cors": "^2.8.5",
     "extract-text-webpack-plugin": "^3.0.2",
     "flexboxgrid": "^6.3.1",
+    "forever": "^1.0.0",
     "handlebars-loader": "^1.7.1",
     "highcharts": "^7.1.2",
     "highcharts-react-official": "^2.2.2",
