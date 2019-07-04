@@ -28,7 +28,7 @@ app.get('/api/passengers/survival', async (req, res) => {
 
 let port = process.env.PORT || 3008;
 
-connect('mongodb://54.197.21.38/mydb')
+connect('mongodb://localhost/mydb')
     .then(() => app.listen(port, () => {
         console.log(`listening on port ${port}`);
     }))
