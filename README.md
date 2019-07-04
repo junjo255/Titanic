@@ -9,7 +9,7 @@
 - Piechart of age, survival, gender
 
 
-#### Demo PNGs/GIFs
+## Demo PNGs/GIFs
 **Sort**
 ![Sort](https://user-images.githubusercontent.com/43450544/60639083-077eb600-9def-11e9-9724-64364ab45c13.gif)
 
@@ -20,7 +20,7 @@
 <img width="1369" alt="Screen Shot 2019-07-03 at 11 48 33 PM" src="https://user-images.githubusercontent.com/43450544/60639118-2e3cec80-9def-11e9-9a32-6d6c6b10e233.png">
 
 
-### Installation
+## Installation
 
 ------------
 Make sure you have the following software installed in your system:
