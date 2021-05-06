@@ -19,7 +19,7 @@
     "flexboxgrid": "^6.3.1",
     "forever": "^1.0.0",
     "handlebars-loader": "^1.7.1",
-    "highcharts": "^7.1.2",
+    "highcharts": "^9.0.0",
     "highcharts-react-official": "^2.2.2",
     "jqwidgets-scripts": "^7.2.0",
     "mongodb": "^3.2.7",
